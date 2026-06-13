@@ -39,7 +39,7 @@ def make_model(vocab: Vocabulary) -> TextClassifier:
 def main() -> None:
     random.seed(SEED)
     torch.manual_seed(SEED)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = torch.device("mps" if torch.mps.is_available() else "cpu")
     print(f"Device: {device}\n")
 
     os.makedirs("checkpoints", exist_ok=True)
